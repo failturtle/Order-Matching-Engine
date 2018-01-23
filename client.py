@@ -94,6 +94,8 @@ class Application(tk.Frame):
             else:
                 self.asks.itemconfigure(self.askboxes[i], text="")
 
+        self.after(100, self.refresh)
+
     def exec_cmd(self, event):
         cmd = self.x.get().lower()
         m = re.match(r'(b|s)\s+(\d+)\s+(\d+(\.\d*)?)$', cmd)
@@ -124,11 +126,9 @@ class Application(tk.Frame):
             self.c.cancel_all(self.i)
             succ = True
 
-        if succ:
-            self.refresh()
-        else:
+        if not succ:
             print("You've cooked it m8")
 
 root = tk.Tk()
 app = Application(master=root)
-app.mainloop()
+tk.mainloop()
