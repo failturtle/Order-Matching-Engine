@@ -89,7 +89,7 @@ class Application(tk.Frame):
             if i < len(oasks):
                 s,p,w = oasks[i]
                 cs += s
-                fill = 'green' if w == self.i else 'white'
+                fill = 'red' if w == self.i else 'white'
                 self.asks.itemconfigure(self.askboxes[i], text="%2.1f\t%4d\t%4d" % (p, s, cs), fill=fill)
             else:
                 self.asks.itemconfigure(self.askboxes[i], text="")
